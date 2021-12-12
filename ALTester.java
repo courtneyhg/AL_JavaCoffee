@@ -2,20 +2,21 @@
 Java Coffee: Courtney Huang, Jason Yang, Yuki Feng
 Lab02: Well Al B. Sorted
 2021 12 10
-Time Spent:
+Time Spent: 1.5 hr
 */
 
 /*
 DISCO:
-
+- you have to nest for loops. the first loop will go through array and the second loop checks if the element at that index is less than all the other remaining elements of the array
+- you do not need to copy the elements to a new array. just switch the elements by their index depending on the smaller integer
 QCC:
+- how to do this with randomized array length? what if we did not have precondition of 23-item array?
 */
 
 
 public class ALTester implements OrderArrayList {
   private int[] _data; //underlying ("encapsulated") container
   private int _size; //number of elements in ALTester
-  private int[] _dataCopy; //copy of array _data to store sorted elements
 
 
   //default constructor – initializes 23-item array
@@ -45,21 +46,33 @@ public class ALTester implements OrderArrayList {
     return _size;
   }
 
+
+  //double capacity of SuperArray
+  public void expand()
+  {
+    int[] temp = new int[ _data.length * 2 ];
+    for( int i = 0; i < _data.length; i++ )
+      temp[i] = _data[i];
+    _data = temp;
+  }
+
   //adds an item after the last item
   public boolean add( int newVal )
   {
+    if ( _size >= _data.length )
+      expand();
+    _data[_size] = newVal;
     _size ++;
-    _data[_size-1] = newVal;
     return true;
   }
 
   //checks if the elements are sorted in ascending order
   public String sortedChecker(){
-    for (int i = 0; i < _size; i++) {
+    for (int i = 0; i < _size-1; i++) {
       //checks if element at index i is less than the next element
       //if not, continue checking
       if (_data[i] <= _data[i+1]) {
-        continue;
+        _data[i] = _data[i];
       }
       else {
         return "Unsorted";
@@ -70,12 +83,12 @@ public class ALTester implements OrderArrayList {
   //sorts through array by iterating.
   public void sorter(){
     for (int i = 0; i < _size; i++) {
-      if (_data[i] > _data[i+1]) {
-        _size ++;
-        _data[_size-1] = _data[i];
-      }
-      else {
-        _data[i] = _data[i];
+      for (int x = 0; x < (_size - 1 - i); x++) {
+        if (_data[x] > _data[x+1]) {
+          int big = _data[x]; //sets x to temporary var big; ex: {2,1} -> _data[x] = 2 = big
+          _data[x] = _data[x+1]; //since _data[x+1] is the smaller element, it moves to _data[x]; ex: {2,1} -> {1,1}
+          _data[x+1] = big; //sets _data[x+1] to the temp var, the bigger element; ex: {1,1} -> {1,2}
+        }
       }
     }
   }
@@ -92,6 +105,7 @@ public class ALTester implements OrderArrayList {
     System.out.println("Is slay sorted or unsorted? Checking...");
     System.out.println("\tVerdict: " + slay.sortedChecker());
     slay.sorter();
-    // System.out.println();
+    System.out.println("Yasss!! Printing sorted slay...");
+    System.out.println("\t" + slay);
   }
 }

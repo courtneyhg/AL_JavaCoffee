@@ -1,8 +1,7 @@
 public interface OrderArrayList {
-  //int expand();
-  int size();
-  ///int get (int index);
-  boolean add (int newVal);
-  String sortedChecker();
-  void sorter();
+  void expand(); //doubles capacity array
+  int size(); //returns number meaningful elements
+  boolean add (int newVal); //adds element at end of array
+  String sortedChecker(); //checks if array sorted
+  void sorter(); //sorts array
 }
