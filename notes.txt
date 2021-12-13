@@ -1,5 +1,14 @@
+java Coffee: Courtney Huang, Yuki Feng, Jason Yang
+APCS PD 07
+L02: Well Al B. Sorted
+2021-12-13
+time: 2 hr
+
 DISCO:
 - you have to nest for loops. the first loop will go through array and the second loop checks if the element at that index is less than all the other remaining elements of the array
 - you do not need to copy the elements to a new array. just switch the elements by their index depending on the smaller integer
+-ArrayList's built in methods are pretty useful since you don't have to make new ones
+
 QCC:
 - how to do this with randomized array length? what if we did not have precondition of 23-item array?
+
