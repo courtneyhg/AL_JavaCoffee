@@ -5,10 +5,13 @@ Lab02: Well Al B. Sorted
 Time Spent: 1.5 hr
 */
 
+import java.util.ArrayList;
+public class ALTester{
+  private int[] _data; //underlying ("encapsulated") container
+  private int _size; //number of elements in ALTester
 
-public class ALTester implements OrderArrayList {
-  // private int[] _data; //underlying ("encapsulated") container
-  // private int _size; //number of elements in ALTester
+  //boolean add (int newVal); //adds element at end of array
+
   //
   //
   // //default constructor – initializes 23-item array
@@ -59,7 +62,7 @@ public class ALTester implements OrderArrayList {
   // }
 
   //checks if the elements are sorted in ascending order
-  public String sortedChecker(){
+  public boolean sortedChecker(){
     for (int i = 0; i < _size-1; i++) {
       //checks if element at index i is less than the next element
       //if not, continue checking
@@ -67,9 +70,9 @@ public class ALTester implements OrderArrayList {
         _data[i] = _data[i];
       }
       else {
-        return "Unsorted";
+        return false;
       }
-    }return "Sorted";
+    }return true;
   }
 
   // //sorts through array by iterating.
@@ -87,17 +90,18 @@ public class ALTester implements OrderArrayList {
 
 
   public static void main(String[] args) {
-    ALTester slay = new ALTester();
+    ArrayList slay = new ArrayList();
     for (int i = 0; i < 23; i++) {
       //populates _data with randomized integers ranging from 0 to 23
       slay.add((int) (Math.random() * 24));
     }
     System.out.println("Printing ALTester slay...");
     System.out.println("\t" + slay);
-    System.out.println("Is slay sorted or unsorted? Checking...");
-    System.out.println("\tVerdict: " + slay.sortedChecker());
+    // System.out.println("Is slay sorted or unsorted? Checking...");
+    // System.out.println("\tVerdict: " + slay.sortedChecker());
+
     // slay.sorter();
-    System.out.println("Yasss!! Printing sorted slay...");
-    System.out.println("\t" + slay);
+    // System.out.println("Yasss!! Printing sorted slay...");
+    // System.out.println("\t" + slay);
   }
 }
