@@ -6,12 +6,11 @@ Java Coffee: Jason Yang, Yuki Feng, Courtney Huang
 
 
 ### OrderedArrayList
-The interface that contains all the abstract methods AlTester implements.
- - `expand` creates a new array with a size 2 times greater than the original array and copies elements from that array into the new array.
+ - `OrderedArrayList()` is the default constructor and creates an empty ArrayList named `_data` 
  - `size` returns the size of the array.
- - `add` takes in a number and inserts it to the end of the array. If the array does not have space, `expand` is called in order to make space. The number is then inserted to the array.
- - `remove` 
- - `sortedChecker` iterates through all the elements of the array, checking if an element is less than or equal to the element to the right of it. If all the elements are less than or equal to the element to the right, then "Sorted" is returned.
- - `sorter` checks if the elements of array type `ArrayList<Integer>` are sorted in ascending order by seeing if the first index is less than or equal to the next index and so on. Next, it sorts the array through iteration. We nested a for loop in a for loop. The first for loop makes sure we go through the array and the second for loop makes sure the elements are in ascending order. It compares the element at a specific index with therest of the elements. If the element at index x is greater than the compared element then the elements are switched.
+ - `add` takes in a number and inserts it to the end of the array. If the array does not have space, `expand` is called in order to make space. The number is then inserted to the array. 
+ - `toString` returns the array in String form
+ - `remove(int index)` removes the value at index using the `remove(int index)` function which is given by ArrayList.
+ - `addLinear` adds by comparing each value linearly with the newValue. If it is less than value at the current index, it adds at that spot.
 
 `
