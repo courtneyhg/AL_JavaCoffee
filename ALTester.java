@@ -5,14 +5,6 @@ Lab02: Well Al B. Sorted
 Time Spent: 1.5 hr
 */
 
-/*
-DISCO:
-- you have to nest for loops. the first loop will go through array and the second loop checks if the element at that index is less than all the other remaining elements of the array
-- you do not need to copy the elements to a new array. just switch the elements by their index depending on the smaller integer
-QCC:
-- how to do this with randomized array length? what if we did not have precondition of 23-item array?
-*/
-
 
 public class ALTester implements OrderArrayList {
   private int[] _data; //underlying ("encapsulated") container
